@@ -1,26 +1,28 @@
-package com.example.demo.service;
+package com.example.demo.Service;
 
+import org.example.ScalaService;
 import org.springframework.stereotype.Service;
-import scala.collection.JavaConverters;
-import scala.collection.Seq;
-import scala.collection.immutable.List;
-import org.example.ScalaLibrary;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class WebsiteInfoService {
 
-    private List<String> history = List.empty();
+    private final ScalaService scalaService;
 
-    public String summarize(String url) {
-        // Assuming ScalaLibrary is your Scala class
-        ScalaLibrary scalaLibrary = new ScalaLibrary();
-        String summary = scalaLibrary.summarize(url);
-        history = history.append(url);
-        return summary;
+    public WebsiteInfoService(ScalaService scalaService) {
+        this.scalaService = scalaService;
     }
 
-    public java.util.List<String> getHistory() {
-        Seq<String> historySeq = history;
-        return JavaConverters.seqAsJavaList(historySeq);
+    public String summarize(String url) {
+
+        return scalaService.summarize(url);
+    }
+
+    public List<String> getHistory() {
+        List<String> history = new ArrayList<>();
+        scalaService.getHistory().foreach(history::add);
+        return history;
     }
 }

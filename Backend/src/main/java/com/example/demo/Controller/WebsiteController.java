@@ -1,7 +1,6 @@
-package com.example.demo.controller;
+package com.example.demo.Controller;
 
-import com.example.demo.service.WebsiteInfoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.Service.WebsiteInfoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,11 +9,14 @@ import java.util.List;
 @RequestMapping("/api")
 public class WebsiteController {
 
-    @Autowired
-    private WebsiteInfoService websiteInfoService;
+    private final WebsiteInfoService websiteInfoService;
+
+    public WebsiteController(WebsiteInfoService websiteInfoService) {
+        this.websiteInfoService = websiteInfoService;
+    }
 
     @PostMapping("/summarize")
-    public String summarizeWebsite(@RequestBody String url) {
+    public String summarize(@RequestBody String url) {
         return websiteInfoService.summarize(url);
     }
 

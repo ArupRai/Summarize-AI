@@ -1,0 +1,55 @@
+plugins {
+    id 'scala'
+    id 'maven-publish'
+    id 'application' // Add the application plugin
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.scala-lang:scala-library:2.13.6'
+    implementation 'org.springframework:spring-context:5.3.14'
+    implementation 'org.springframework:spring-beans:5.3.14'
+    implementation 'org.springframework:spring-core:5.3.14'
+    implementation 'com.typesafe.slick:slick_2.13:3.3.3'
+    implementation 'com.typesafe:config:1.4.1'
+    implementation 'org.postgresql:postgresql:42.2.5'
+    implementation 'com.typesafe.slick:slick-hikaricp_2.13:3.3.3'
+    implementation 'com.softwaremill.sttp.client3:core_2.13:3.8.0'
+    implementation 'com.softwaremill.sttp.client3:circe_2.13:3.8.0'
+    implementation 'io.circe:circe-generic_2.13:0.14.1'
+    implementation 'io.circe:circe-parser_2.13:0.14.1'
+    implementation 'org.slf4j:slf4j-api:1.7.32'
+    implementation ('org.slf4j:slf4j-simple:1.7.32') {
+        exclude group: 'org.slf4j', module: 'slf4j-api'
+    }
+    testImplementation 'org.scalatest:scalatest_2.13:3.2.12'
+    testImplementation 'org.scalatestplus:junit-4-12_2.13:3.2.2.0'
+}
+
+tasks.withType(ScalaCompile) {
+    scalaCompileOptions.additionalParameters = ['-deprecation', '-feature', '-unchecked']
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
+
+application {
+    mainClass = 'org.example.Main'
+}

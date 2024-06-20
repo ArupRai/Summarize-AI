@@ -1,60 +1,77 @@
 package org.example
 
-import java.time.LocalDateTime
-import slick.jdbc.PostgresProfile.api._
-import com.typesafe.config.ConfigFactory
-import scala.concurrent.Await
-import scala.concurrent.duration._
-import org.slf4j.LoggerFactory
+import java.sql.{Connection, DriverManager, ResultSet}
 
-object Main extends App {
-  val logger = LoggerFactory.getLogger(this.getClass)
+object DatabaseService {
+  val url = "jdbc:postgresql://postgres:5432/SummarizeAI-DB"
+  val username = "arup"
+  val password = "aruprai842"
 
-  val config = ConfigFactory.load()
-  val dbConfig = config.getConfig("db")
-  val dbUrl = dbConfig.getString("url")
-  val dbUser = dbConfig.getString("user")
-  val dbPassword = dbConfig.getString("password")
-  val dbDriver = dbConfig.getString("driver")
+  def getConnection(): Connection = {
+    DriverManager.getConnection(url, username, password)
+  }
 
-  val db = Database.forURL(dbUrl, user = dbUser, password = dbPassword, driver = dbDriver)
-  val summaryTable = TableQuery[SummaryTable]
-
-  try {
-    // Initialize the schema
-    val setup = DBIO.seq(
-      summaryTable.schema.createIfNotExists
+  def createSummary(userMacAddress: String, dateOfSearch: String, timeOfSearch: String, webappUrl: String, summary: String): Unit = {
+    val connection = getConnection()
+    val statement = connection.prepareStatement(
+      "INSERT INTO Summary (user_mac_address, date_of_search, time_of_search, webapp_url, summary) VALUES (?, ?, ?, ?, ?)"
     )
-    Await.result(db.run(setup), 10.seconds)
-    logger.info("Schema created or already exists.")
+    statement.setString(1, userMacAddress)
+    statement.setDate(2, java.sql.Date.valueOf(dateOfSearch))
+    statement.setTime(3, java.sql.Time.valueOf(timeOfSearch))
+    statement.setString(4, webappUrl)
+    statement.setString(5, summary)
+    statement.executeUpdate()
+    statement.close()
+    connection.close()
+  }
 
-    // Insert a test record
-    val testSummary = Summary("00:11:22:33:44:55", LocalDateTime.now(), "http://example.com", "Test summary")
-    val insertAction = (summaryTable returning summaryTable.map(_.id)) += testSummary
-    val insertResult = Await.result(db.run(insertAction), 10.seconds)
-    logger.info(s"Test record inserted with ID: $insertResult")
-
-    // Query the test record
-    val queryAction = summaryTable.filter(_.id === insertResult).result.headOption
-    val queryResult = Await.result(db.run(queryAction), 10.seconds)
-    queryResult match {
-      case Some(summary) => logger.info(s"Query successful: $summary")
-      case None => logger.warn("No record found.")
+  def readSummary(userMacAddress: String): Option[(String, String, String, String, String)] = {
+    val connection = getConnection()
+    val statement = connection.prepareStatement(
+      "SELECT * FROM Summary WHERE user_mac_address = ?"
+    )
+    statement.setString(1, userMacAddress)
+    val resultSet = statement.executeQuery()
+    val result = if (resultSet.next()) {
+      Some(
+        (
+          resultSet.getString("user_mac_address"),
+          resultSet.getDate("date_of_search").toString,
+          resultSet.getTime("time_of_search").toString,
+          resultSet.getString("webapp_url"),
+          resultSet.getString("summary")
+        )
+      )
+    } else {
+      None
     }
+    resultSet.close()
+    statement.close()
+    connection.close()
+    result
+  }
 
-    // Update the test record
-    val updateAction = summaryTable.filter(_.id === insertResult).map(_.summary).update("Updated summary")
-    Await.result(db.run(updateAction), 10.seconds)
-    logger.info(s"Record updated.")
+  def updateSummary(userMacAddress: String, newSummary: String): Unit = {
+    val connection = getConnection()
+    val statement = connection.prepareStatement(
+      "UPDATE Summary SET summary = ? WHERE user_mac_address = ?"
+    )
+    statement.setString(1, newSummary)
+    statement.setString(2, userMacAddress)
+    statement.executeUpdate()
+    statement.close()
+    connection.close()
+  }
 
-    // Delete the test record
-    val deleteAction = summaryTable.filter(_.id === insertResult).delete
-    Await.result(db.run(deleteAction), 10.seconds)
-    logger.info(s"Record deleted.")
-  } catch {
-    case e: Exception =>
-      logger.error(s"Database operation failed: ${e.getMessage}")
-  } finally {
-    db.close()
+  def deleteSummary(userMacAddress: String): Unit = {
+    val connection = getConnection()
+    val statement = connection.prepareStatement(
+      "DELETE FROM Summary WHERE user_mac_address = ?"
+    )
+    statement.setString(1, userMacAddress)
+    statement.executeUpdate()
+    statement.close()
+    connection.close()
   }
 }

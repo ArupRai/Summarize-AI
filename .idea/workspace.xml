@@ -5,10 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63a470ca-11e7-4e29-b06a-3420405b677e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/header_req.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lang_openai.py" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/lib/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/lib/src/main/resources/application.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/DatabaseService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/init-scripts.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/Main.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/ScalaService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/ScalaService.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/demo/Controller/WebsiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/demo/Controller/WebsiteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/demo/Service/WebsiteInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/demo/Service/WebsiteInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/src/main/java/com/example/Config/ScalaConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/src/main/java/com/example/Controller/WebsiteInfoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/src/main/java/com/example/SpringBootApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/src/test/java/com/example/Spring_Boot_app/SpringBootAppApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-scala-lib/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-scala-lib/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-scala-lib/project/Dependencies.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-scala-lib/project/build.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-scala-lib/src/main/scala/example/Hello.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-scala-lib/src/main/scala/example/MyScalaLib.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-scala-lib/src/main/scala/example/ScalaClient.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my-scala-lib/src/test/scala/example/HelloSpec.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python-fast-api/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python-fast-api/header_req.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python-fast-api/lang_openai.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,10 +48,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
@@ -34,23 +64,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/arupr/OneDrive/WEB/Summarize-AI",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/arupr/OneDrive/WEB/Summarize-AI&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\arupr\OneDrive\WEB\Summarize-AI\SpringBootAPIserver" />
+      <recent name="C:\Users\arupr\OneDrive\WEB\Summarize-AI" />
+      <recent name="C:\Users\arupr\OneDrive\WEB\Summarize-AI\backend" />
       <recent name="C:\Users\arupr\OneDrive\WEB\sumMARize\python fast-api" />
     </key>
   </component>
@@ -106,6 +139,20 @@
       <workItem from="1717665364337" duration="2113000" />
       <workItem from="1717667554287" duration="1007000" />
       <workItem from="1717670573549" duration="1303000" />
+      <workItem from="1717765811714" duration="308000" />
+      <workItem from="1717786391651" duration="3599000" />
+      <workItem from="1717827755566" duration="4428000" />
+      <workItem from="1717838913837" duration="4893000" />
+      <workItem from="1718041119843" duration="7027000" />
+      <workItem from="1718087323678" duration="10331000" />
+      <workItem from="1718103076501" duration="1670000" />
+      <workItem from="1718119615290" duration="1161000" />
+      <workItem from="1718173179205" duration="1975000" />
+      <workItem from="1718612944768" duration="6443000" />
+      <workItem from="1718628076689" duration="5605000" />
+      <workItem from="1718644881102" duration="5590000" />
+      <workItem from="1718809600398" duration="4176000" />
+      <workItem from="1718859079924" duration="1727000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,54 @@
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: arup
+      POSTGRES_PASSWORD: aruprai842
+      POSTGRES_DB: SummarizeAI-DB
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init-scripts.sql:/docker-entrypoint-initdb.d/scripts.sql
+
+  fastapi-service:
+    build:
+      context: ./fastapi-service
+    ports:
+      - "8000:8000"  # Changed to use port 8001
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    depends_on:
+      - postgres
+
+  backend-service:
+    build:
+      context: ./backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - scala-app
+
+  scala-app:
+    build:
+      context: ./backend/lib
+    depends_on:
+      - postgres
+      - fastapi-service
+    environment:
+      - POSTGRES_USER=arup
+      - POSTGRES_PASSWORD=aruprai842
+      - POSTGRES_DB=SummarizeAI-DB
+    volumes:
+      - ./backend/lib:/app
+
+  react-frontend:
+    build:
+      context: ./react-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend-service
+
+volumes:
+  pgdata:
