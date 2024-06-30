@@ -1,0 +1,41 @@
+.history-container {
+    padding: 20px;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.history-item > div {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.history-date, .history-time, .history-url, .history-summary {
+    word-break: break-word;
+}
+
+.history-date {
+    flex: 1;
+}
+
+.history-time {
+    flex: 1;
+}
+
+.history-url {
+    flex: 2;
+}
+
+.history-summary {
+    flex: 3;
+}

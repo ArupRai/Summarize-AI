@@ -1,31 +1,54 @@
-import React, { useState } from 'react';
 import axios from 'axios';
+import React, { useState } from 'react';
 
-function SummarizePage() {
-    const [url, setUrl] = useState('');
-    const [summary, setSummary] = useState('');
+const SummarizeComponent = () => {
+  const [summary, setSummary] = useState('');
+  const [text, setText] = useState('');
+  const [error, setError] = useState('');
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const response = await axios.get(`/summarize?url=${url}`);
-        setSummary(response.data.summary);
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
 
-    return (
-        <div>
-            <h1>Summarize Website</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    placeholder="https://cimba.ai"
-                />
-                <button type="submit">Summarize</button>
-            </form>
-            {summary && <p>{summary}</p>}
-        </div>
-    );
-}
+    try {
+      const response = await axios.post(
+        'http://localhost:8080/api/summarize',
+        { text },
+        {
+          timeout: 60000, // Set timeout to 60 seconds
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
 
-export default SummarizePage;
+      if (response.status === 200) {
+        await setSummary(response.data); // Adjust this according to your API response structure
+        setError('');
+      } else {
+        setError('Network response was not ok');
+      }
+    } catch (error) {
+      if (error.code === 'ECONNABORTED') {
+        setError('Request timed out');
+      } else {
+        setError('Failed to fetch data. Please try again later.');
+      }
+      // console.error('Error:', error);
+    }
+  };
+
+  return (
+    <div>
+      <textarea
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Enter text to summarize"
+      />
+      <button onClick={handleSubmit}>Summarize</button>
+      {summary && <div><p style={{ color: 'green' }}>Summary: {summary}</p></div>}
+      {error && <div><p style={{ color: 'red' }}>{error}</p></div>}
+    </div>
+  );
+};
+
+export default SummarizeComponent;

@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   postgres:
     image: postgres:13
@@ -9,17 +11,19 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-      - ./db/init-scripts.sql:/docker-entrypoint-initdb.d/scripts.sql
+#      - ./db/init-scripts.sql:/docker-entrypoint-initdb.d/scripts.sql
+    networks:
+      - summarize-ai_mynetwork
 
   fastapi-service:
     build:
       context: ./fastapi-service
     ports:
-      - "8000:8000"  # Changed to use port 8001
+      - "8000:8000"
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
-    depends_on:
-      - postgres
+    networks:
+      - summarize-ai_mynetwork
 
   backend-service:
     build:
@@ -28,7 +32,10 @@ services:
       - "8080:8080"
     depends_on:
       - scala-app
-
+    networks:
+        summarize-ai_mynetwork:
+          aliases:
+            - backend-service
   scala-app:
     build:
       context: ./backend/lib
@@ -41,6 +48,8 @@ services:
       - POSTGRES_DB=SummarizeAI-DB
     volumes:
       - ./backend/lib:/app
+    networks:
+      - summarize-ai_mynetwork
 
   react-frontend:
     build:
@@ -49,6 +58,13 @@ services:
       - "3000:3000"
     depends_on:
       - backend-service
+    networks:
+      - summarize-ai_mynetwork
 
 volumes:
   pgdata:
+
+networks:
+  summarize-ai_mynetwork:
+    driver: bridge
+

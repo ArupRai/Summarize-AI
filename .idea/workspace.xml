@@ -5,40 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63a470ca-11e7-4e29-b06a-3420405b677e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Backend/lib/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/lib/src/main/resources/application.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/DatabaseService.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/init-scripts.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/HistoryEntry.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/demo/config/CorsConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/demo/dto/SummarizeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/DatabaseService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/DatabaseService.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/Main.scala" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/Main.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/ScalaService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/lib/src/main/scala/org/example/ScalaService.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/demo/Controller/WebsiteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/demo/Controller/WebsiteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Backend/src/main/java/com/example/demo/Service/WebsiteInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/java/com/example/demo/Service/WebsiteInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/src/main/java/com/example/Config/ScalaConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/src/main/java/com/example/Controller/WebsiteInfoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/src/main/java/com/example/SpringBootApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Spring-Boot-app/src/test/java/com/example/Spring_Boot_app/SpringBootAppApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-scala-lib/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-scala-lib/build.sbt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-scala-lib/project/Dependencies.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-scala-lib/project/build.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-scala-lib/src/main/scala/example/Hello.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-scala-lib/src/main/scala/example/MyScalaLib.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-scala-lib/src/main/scala/example/ScalaClient.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my-scala-lib/src/test/scala/example/HelloSpec.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python-fast-api/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python-fast-api/header_req.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/python-fast-api/lang_openai.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/src/test/java/com/example/demo/SpringBootApiServerApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/src/test/java/com/example/demo/SpringBootApiServerApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/init-scripts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/init-scripts.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fastapi-service/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/fastapi-service/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/HistoryPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/HistoryPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/react-frontend/src/components/SummarizePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/react-frontend/src/components/SummarizePage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,8 +99,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17011.127" />
+        <option value="bundled-python-sdk-48aec45f0201-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17011.127" />
       </set>
     </attachedChunks>
   </component>
@@ -152,7 +136,22 @@
       <workItem from="1718628076689" duration="5605000" />
       <workItem from="1718644881102" duration="5590000" />
       <workItem from="1718809600398" duration="4176000" />
-      <workItem from="1718859079924" duration="1727000" />
+      <workItem from="1718859079924" duration="7166000" />
+      <workItem from="1718873573761" duration="15315000" />
+      <workItem from="1719136938203" duration="512000" />
+      <workItem from="1719137468011" duration="1116000" />
+      <workItem from="1719139570682" duration="91000" />
+      <workItem from="1719154409722" duration="861000" />
+      <workItem from="1719229980257" duration="8571000" />
+      <workItem from="1719248157200" duration="5723000" />
+      <workItem from="1719313545261" duration="2031000" />
+      <workItem from="1719322299296" duration="5571000" />
+      <workItem from="1719334460003" duration="549000" />
+      <workItem from="1719335432694" duration="3839000" />
+      <workItem from="1719398889480" duration="12656000" />
+      <workItem from="1719484337955" duration="10522000" />
+      <workItem from="1719571672990" duration="8908000" />
+      <workItem from="1719655358100" duration="690000" />
     </task>
     <servers />
   </component>

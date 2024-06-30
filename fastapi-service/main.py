@@ -6,7 +6,6 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import os
 from dotenv import load_dotenv
-from fastapi.responses import PlainTextResponse
 
 load_dotenv()  # Load environment variables from .env file
 
@@ -40,7 +39,7 @@ def summarize(request: SummaryRequest):
             model="llama-13b-chat",
             messages=[
                 {"role": "system", "content": "HARE KRISHNA"},
-                {"role": "user", "content": f"Summarize '{request.webapp_link}'"}
+                {"role": "user", "content": f"Summarize '{request.webapp_link}' url within 200 words."}
             ],
             max_tokens=300,
             temperature=0.5,
@@ -50,7 +49,7 @@ def summarize(request: SummaryRequest):
         summary = response.choices[0].message.content
         return {"summary": summary}
     except Exception as e:
-        logging.error(f"Error occurred while summarizing: {str(e)}")
+        # logging.error(f"Error occurred while summarizing: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
 
 if __name__ == "__main__":

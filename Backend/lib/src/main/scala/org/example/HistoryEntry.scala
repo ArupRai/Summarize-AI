@@ -1,44 +1,20 @@
 package org.example
 
-
 class HistoryEntry {
+  private var date: String = null
+  private var time: String = null
+  private var url: String = null
+  private var summary: String = null
 
-  // Default constructor
-  private var date: Nothing = null
-  private var time: Nothing = null
-  private var url: Nothing = null
-  private var summary: Nothing = null
+  def getDate: String = date
+  def setDate(date: String): Unit = { this.date = date }
 
-  def this(date: Nothing, time: Nothing, url: Nothing, summary: Nothing) {
-    this()
-    this.date = date
-    this.time = time
-    this.url = url
-    this.summary = summary
-  }
+  def getTime: String = time
+  def setTime(time: String): Unit = { this.time = time }
 
-  // Getters and setters
-  def getDate: Nothing = date
+  def getUrl: String = url
+  def setUrl(url: String): Unit = { this.url = url }
 
-  def setDate(date: Nothing): Unit = {
-    this.date = date
-  }
-
-  def getTime: Nothing = time
-
-  def setTime(time: Nothing): Unit = {
-    this.time = time
-  }
-
-  def getUrl: Nothing = url
-
-  def setUrl(url: Nothing): Unit = {
-    this.url = url
-  }
-
-  def getSummary: Nothing = summary
-
-  def setSummary(summary: Nothing): Unit = {
-    this.summary = summary
-  }
+  def getSummary: String = summary
+  def setSummary(summary: String): Unit = { this.summary = summary }
 }

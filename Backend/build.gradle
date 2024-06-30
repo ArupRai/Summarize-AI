@@ -15,8 +15,15 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation project(':lib')
 	implementation 'org.scala-lang:scala-library:2.13.6'
+	implementation 'com.typesafe.scala-logging:scala-logging_2.13:3.9.5'
+	implementation 'com.softwaremill.sttp.client3:core_2.13:3.8.0'
+	implementation 'com.softwaremill.sttp.client3:circe_2.13:3.8.0'
+	implementation 'io.circe:circe-core_2.13:0.14.3'
+	implementation 'io.circe:circe-generic_2.13:0.14.3'
+	implementation 'io.circe:circe-parser_2.13:0.14.3'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
